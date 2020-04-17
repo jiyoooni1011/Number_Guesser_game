@@ -6,6 +6,7 @@ let currentRoundNumber = 1;
 
 const generateTarget = () => Math.floor(Math.random() * 10);
 
+/*
 const compareGuesses = (humanGuess, comGuess, secretTarget) => { 
     if (humanGuess === comGuess) {
         return true;
@@ -15,6 +16,7 @@ const compareGuesses = (humanGuess, comGuess, secretTarget) => {
       return true;
     }
 }
+*/
 
 const updateScore = (winner) => {
     if(winner === 'human') {
@@ -25,3 +27,11 @@ const updateScore = (winner) => {
 }
 
 const advanceRound = () => currentRoundNumber ++;
+
+
+const compareGuesses = (humanGuess, comGuess, secretTarget) => { 
+    const humanDiff = Math.abs(humanGuess - secretTarget);
+    const comDiff = Math.abs(comGuess - secretTarget);
+    return humanDiff <= comDiff;
+}
+
